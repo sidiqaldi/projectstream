@@ -7,6 +7,13 @@ use Livewire\Component;
 
 class Logout extends Component
 {
+    public $title = 'Logout';
+
+    public function mount(?string $customTitle = null)
+    {
+        $this->title = $customTitle ?? $this->title;
+    }
+
     public function logout()
     {
         Auth::logout();

@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Team;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::middleware('guest')->group(function() {
 });
 
 Route::middleware('auth')->group(function() {
-    Route::view('home','welcome')->name('home');
+    Route::view('home', 'welcome')->name('home');
+    Route::get('teams', Team::class)->name('team');
 });
 

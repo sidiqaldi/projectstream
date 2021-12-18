@@ -25,6 +25,7 @@ class Register extends Component
                 'same:passwordConfirmation',
                 Password::min(8)->letters()->numbers(),
             ],
+            'passwordConfirmation' => 'required',
         ];
     }
 

@@ -35,7 +35,8 @@
                         id="passwordConfirmation"
                         name="password_confirmation"
                         type="password"
-                        class="flex w-full px-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************">
+                        class="@error('passwordConfirmation') border-red-600 @enderror flex w-full px-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************">
+                    @error('passwordConfirmation') <div class="m-2 text-red-600">{{ $message }}</div> @enderror
                 </div>
             </div>
             <div class="flex">

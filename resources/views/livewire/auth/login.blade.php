@@ -25,7 +25,7 @@
         </div>
         <div class="flex">
             <div class="w-full mb-5">
-                <button type="submit" class="block w-full bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg py-3 font-semibold">REGISTER NOW</button>
+                <button type="submit" class="block w-full bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg py-3 font-semibold">LOGIN</button>
             </div>
         </div>
         <div class="flex">

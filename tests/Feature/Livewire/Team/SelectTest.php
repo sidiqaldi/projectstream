@@ -41,4 +41,21 @@ class SelectTest extends TestCase
             ->test('team.select')
             ->assertSee('You don\'t have a team yet...', false);
     }
+
+    public function test_prevent_user_access_others_team()
+    {
+        $userA = User::factory()->hasTeams(2)->create();
+        $userB = User::factory()->hasTeams(2)->create();
+
+        $teamA = $userA->teams->first();
+        $teamB = $userB->teams->first();
+
+        $this->actingAs($userA)
+            ->get(route('team.dashboard', ['currentTeam' => $teamA->uuid]))
+            ->assertOk();
+
+        $this->actingAs($userA)
+            ->get(route('team.dashboard',  ['currentTeam' => $teamB->uuid]))
+            ->assertNotFound();
+    }
 }

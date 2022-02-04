@@ -12,11 +12,12 @@
     @livewireStyles
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">    <!-- Alpine --><!-- change using webpack after all feature finish -->
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.2.3/dist/trix.css">    <!-- Alpine --><!-- change using webpack after all feature finish -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="antialiased font-sans bg-gray-200">
     {{ $slot }}
-
     @livewireScripts
+    @stack('scripts')
     <script src="https://unpkg.com/moment"></script><!-- change using webpack after all feature finish -->
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script><!-- change using webpack after all feature finish -->
     <script src="https://unpkg.com/trix@1.2.3/dist/trix.js"></script><!-- change using webpack after all feature finish -->

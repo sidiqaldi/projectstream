@@ -35,7 +35,7 @@ class Create extends Component
         $team = $user->teams()->create($data);
 
         return redirect(route('team.dashboard', [
-            'team' => $team->uuid
+            'currentTeam' => $team->uuid
         ]));
     }
 

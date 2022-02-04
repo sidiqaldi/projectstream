@@ -35,7 +35,7 @@ class CreateTest extends TestCase
             ->set('name', $teamName)
             ->call('create')
             ->assertRedirect(route('team.dashboard', [
-                'team' => Team::where('name', $teamName)->first()->uuid
+                'currentTeam' => Team::where('name', $teamName)->first()->uuid
             ]));
     }
 }

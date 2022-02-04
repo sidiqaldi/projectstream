@@ -14,13 +14,14 @@ class Select extends Component
     {
         return User::find(Auth::id())->teams()
             ->withCount('users')
+            ->withCount('projects')
             ->paginate();
     }
 
     public function render()
     {
         return view('livewire.team.select', [
-                'teams' => $this->teams
+                'teams' => $this->getTeamsProperty()
             ])
             ->layout('layouts.center');
     }

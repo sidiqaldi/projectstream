@@ -2,8 +2,10 @@
 
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Project\Create as ProjectCreate;
+use App\Http\Livewire\Project\Edit as ProjectEdit;
 use App\Http\Livewire\Team\Select as TeamSelect;
-use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +28,12 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('home', TeamSelect::class)->name('home');
-    Route::get('teams/{team:uuid}', function(Team $team) {
-        return response()->json([
-            'data' => $team
-        ]);
-    })->name('team.dashboard');
+    Route::scopeBindings()->prefix('teams/{currentTeam}')->group(function () {
+        Route::get('dashboard', Dashboard::class)->name('team.dashboard');
+        Route::prefix('projects')->group(function () {
+            Route::get('create', ProjectCreate::class)->name('team.project.create');
+            Route::get('{project:uuid}/edit', ProjectEdit::class)->name('team.project.edit');
+        });
+    });
 });
 

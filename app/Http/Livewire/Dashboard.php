@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Team;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Livewire\Macros\ViewMacros;
 
 class Dashboard extends Component
 {
@@ -57,6 +58,8 @@ class Dashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboard', $this->renderData());
+        /** @var ViewMacros $view */
+        $view = view('livewire.dashboard', $this->renderData());
+        return $view->layoutData(['team' => $this->team]);
     }
 }

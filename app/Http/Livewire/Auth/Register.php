@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Component;
+use Livewire\Macros\ViewMacros;
 
 class Register extends Component
 {
@@ -60,7 +61,8 @@ class Register extends Component
 
     public function render()
     {
-        return view('livewire.auth.register')
-            ->layout('layouts.auth');
+        /** @var ViewMacros $view */
+        $view = view('livewire.auth.register');
+        return $view->layout('layouts.auth');
     }
 }

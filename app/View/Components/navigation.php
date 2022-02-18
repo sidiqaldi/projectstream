@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Team;
 use Illuminate\View\Component;
 
 class navigation extends Component
@@ -11,10 +12,7 @@ class navigation extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(public $team) {}
 
     /**
      * Get the view / contents that represent the component.
